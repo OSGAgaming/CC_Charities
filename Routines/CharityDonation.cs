@@ -5,7 +5,6 @@ namespace Charity
 {
 public class CharityDonation : Routine
   {
-    public CharityDatabase charityDatabase;
     public int charityChosen => CharityDonationProcess.charityChosen;
 
     internal override bool _Action()
@@ -15,7 +14,7 @@ public class CharityDonation : Routine
         float valueOfShoppingBill;
         bool Valid = float.TryParse(Console.ReadLine(),out valueOfShoppingBill);
 
-        if(!Valid)
+        if(!Valid || valueOfShoppingBill <= 0)
          return true;
 
         float valueOfDonation = valueOfShoppingBill/100f;
